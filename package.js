@@ -1,6 +1,6 @@
 // package metadata file for Meteor.js
 // console.log(global);
-var packageName = 'angularui:angular-google-maps'; // https://atmospherejs.com/angularui/angular-google-maps
+var packageName = 'angularui:angular-google-maps'; // https://atmospherejs.com/angularui/angular-google-maps-refresh
 var where = 'client'; // where to install: 'client' or 'server'. For both, pass nothing.
 var version = Npm.require(process.env.PWD + '/package.json').version;
 
@@ -9,8 +9,8 @@ console.log("uigmap version to publish: " + version);
 Package.describe({
   name: packageName,
   version: version,
-  summary: 'angular-google-maps (official)',
-  git: 'git@github.com:angular-ui/angular-google-maps.git',
+  summary: 'angular-google-maps-refresh',
+  git: 'git@github.com:keeperantoha/angular-google-maps-refresh.git',
   documentation: null
 });
 
