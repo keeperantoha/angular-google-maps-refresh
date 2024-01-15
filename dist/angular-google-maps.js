@@ -8401,8 +8401,17 @@ angular.module('uiGmapgoogle-maps.wrapped')
           this.center_ = center;
         }, ClusterIcon.prototype.createCss = function (pos) {
           var style = [];
-          if (this.cluster_.markers_.allVals.length > 0 && this.cluster_.markers_.allVals[0].model.zIndex) {
-            style.push('z-index: ' + this.cluster_.markers_.allVals[0].model.zIndex + ';');
+          if (this.cluster_.markers_.allVals.length > 0) {
+            var zIndex = 0;
+            for(var i = 0; i < this.cluster_.markers_.allVals.length; i++) {
+              if (this.cluster_.markers_.allVals[i].model.options.zIndex) {
+                zIndex = this.cluster_.markers_.allVals[i].model.options.zIndex;
+                break;
+              }
+            }
+            if (zIndex) {
+              style.push('z-index: ' + zIndex + ';');
+            }
           }
           return style.push('cursor: pointer;'), style.push('position: absolute; top: ' + pos.y + 'px; left: ' + pos.x + 'px;'), style.push('width: ' + this.width_ + 'px; height: ' + this.height_ + 'px;'), style.join('');
         }, ClusterIcon.prototype.getPosFromLatLng_ = function (latlng) {
